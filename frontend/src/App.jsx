@@ -153,11 +153,10 @@ function LandingPage({ onOpenDemo }) {
 
       <header className="hero">
         <div className="wrap">
-          <div className="eyebrow">HackOut'26 · Circular Carbon Ecosystem · Team Nebula Nuke</div>
           <h1 className="hero-title">
             Find where a factory&apos;s <span>carbon leaks.</span>
             <br />
-            Fix it for less than it costs.
+            Fix it for less than it costs.z
           </h1>
           <p className="hero-sub">
             CarbonLens is an industrial emission leak-point detector and circular alternative recommender — built for MSMEs with no ESG team, no measured data, and no budget for consultants.
