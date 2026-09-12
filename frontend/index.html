@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CarbonLens — Find where a factory's carbon leaks</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span> CarbonLens</div>
+    <div class="navlinks">
+      <a href="#problem">Problem</a>
+      <a href="#solution">Solution</a>
+      <a href="#how">How it works</a>
+      <a href="#impact">Impact</a>
+    </div>
+    <a class="btn btn-primary btn-sm" href="app.html">Try the demo →</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">HackOut'26 · Circular Carbon Ecosystem · Team Nebula Nuke</div>
+    <h1 class="hero-title">Find where a factory's <span>carbon leaks.</span><br>Fix it for less than it costs.</h1>
+    <p class="hero-sub">CarbonLens is an industrial emission leak-point detector and circular alternative
+      recommender — built for MSMEs with no ESG team, no measured data, and no budget for consultants.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="app.html">Launch interactive demo →</a>
+      <a class="btn btn-ghost" href="#solution">See how it works</a>
+    </div>
+    <div class="hero-strip">
+      <div class="metric-pill"><b>3 screens</b><span>input → hotspots → actions</span></div>
+      <div class="metric-pill"><b>2 numbers</b><span>₹ saved + tCO₂e cut per fix</span></div>
+      <div class="metric-pill"><b>0 black boxes</b><span>cited factors, explainable rules</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="problem">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">01 · Problem &amp; users</div>
+      <h2>Small factories can't see their own carbon.</h2>
+      <p class="section-desc">Buyers, banks and regulators now ask MSMEs for a carbon number. Emissions stay
+        invisible, and circular options are never evaluated because nobody can put a cost on them.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card"><h3>6.3 Cr</h3><p>MSMEs in India; over 90% have never measured emissions.</p></div>
+      <div class="card"><h3>Scope 3</h3><p>Large buyers must now report supplier emissions under BRSR.</p></div>
+      <div class="card"><h3>₹0</h3><p>Typical SME budget for sustainability consulting.</p></div>
+    </div>
+    <div class="grid-3" style="margin-top:18px;">
+      <div class="card"><span class="tag">SMEs &amp; operators</span><h3>Get a footprint fast</h3><p>A footprint number and a 3-action plan in 10 minutes — plain language, ₹ lakh units, works on a phone.</p></div>
+      <div class="card"><span class="tag">Consultants</span><h3>Serve 10× more clients</h3><p>Export a methodology-backed report per site instead of building one from scratch.</p></div>
+      <div class="card"><span class="tag">Regulators &amp; buyers</span><h3>Onboard a supplier base</h3><p>GHG-Protocol-aligned, auditable numbers for Scope 3 reporting.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="solution">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">02 · Solution</div>
+      <h2>Three steps. Two numbers. One plan.</h2>
+      <p class="section-desc">Input what you burn, buy and throw away → detect the leak point → fix it with costed circular interventions.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card"><span class="tag">1 · Input</span><h3>What you burn, buy, throw away</h3><p>3 short screens with presets for textile, foundry and food, so the demo never starts blank.</p></div>
+      <div class="card"><span class="tag">2 · Detect</span><h3>Every source ranked</h3><p>Sources ranked by tCO₂e. One chart makes the leak point obvious — usually a single boiler or grid power.</p></div>
+      <div class="card"><span class="tag">3 · Fix</span><h3>Costed circular interventions</h3><p>Sorted by payback. Add to plan for a before/after footprint, ₹ total, and an exportable report.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">03 · How it works</div>
+      <h2>Rules for the numbers, AI for the words.</h2>
+      <p class="section-desc">Rules compute every ₹ and tCO₂e figure, so numbers stay auditable and explainable to a regulator. The LLM only writes the plain-language "why it works" notes.</p>
+    </div>
+    <div class="pipeline">
+      <div class="pipe-step"><div class="n">Input</div><h4>Guided form + presets</h4><p>Optional CSV upload for real bills and ledgers.</p></div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step"><div class="n">Calc engine</div><h4>Quantity × emission factor</h4><p>Scope 1/2/3 split, Pareto ranked.</p></div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step"><div class="n">Recommender</div><h4>Rule library fires per source</h4><p>Cost, savings and payback per fix.</p></div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step"><div class="n">Report</div><h4>Plan builder</h4><p>Before/after, compliance badge, PDF export.</p></div>
+    </div>
+
+    <h3 style="margin-top:40px;font-size:18px;">Emission factors (cited: CEA · IPCC · DEFRA)</h3>
+    <table class="factors">
+      <thead><tr><th>Source</th><th>Unit</th><th>kgCO₂e / unit</th><th>Scope</th><th>Circular alternative</th></tr></thead>
+      <tbody>
+        <tr><td>Grid electricity (India)</td><td>kWh</td><td class="num">0.716</td><td><span class="scope-pill">Scope 2</span></td><td>Rooftop solar, VFDs, LED</td></tr>
+        <tr><td>Coal (boiler)</td><td>tonne</td><td class="num">2,420</td><td><span class="scope-pill">Scope 1</span></td><td>Biomass pellets, heat recovery</td></tr>
+        <tr><td>Diesel (genset)</td><td>litre</td><td class="num">2.68</td><td><span class="scope-pill">Scope 1</span></td><td>Battery storage</td></tr>
+        <tr><td>Steel (virgin)</td><td>tonne</td><td class="num">1,850</td><td><span class="scope-pill">Scope 3</span></td><td>Recycled steel (~600)</td></tr>
+        <tr><td>Road freight</td><td>t-km</td><td class="num">0.105</td><td><span class="scope-pill">Scope 3</span></td><td>Load consolidation, rail</td></tr>
+        <tr><td>Organic waste → landfill</td><td>tonne</td><td class="num">580</td><td><span class="scope-pill">Scope 3</span></td><td>Biogas / compost (credit)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="impact">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">04 · Impact &amp; roadmap</div>
+      <h2>Demo factory: Ambica Textiles, Surat</h2>
+    </div>
+    <div class="grid-3">
+      <div class="card"><h3 style="color:var(--green);">−57%</h3><p>Footprint after 3 actions (1,842 → 795 tCO₂e/yr).</p></div>
+      <div class="card"><h3 style="color:var(--green);">₹22.3 L</h3><p>Operating cost saved every year.</p></div>
+      <div class="card"><h3 style="color:var(--green);">24 mo</h3><p>Payback on the biggest fix — the biomass boiler.</p></div>
+    </div>
+    <div style="text-align:center;margin-top:44px;">
+      <a class="btn btn-primary" href="app.html">Run this factory through CarbonLens →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>CarbonLens · Team Nebula Nuke · HackOut'26 · Circular Carbon Ecosystem</div>
+    <div>Kunal Ramanuja · Zeel Nakum · Yash Chauhan · Akshat Govindiya</div>
+  </div>
+</footer>
+
+</body>
+</html>

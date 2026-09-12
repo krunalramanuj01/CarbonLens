@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CarbonLens — Demo</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="topnav no-print">
+  <div class="wrap">
+    <a class="brand" href="index.html" style="text-decoration:none;"><span class="dot"></span> CarbonLens</a>
+    <a class="btn btn-ghost btn-sm" href="index.html">← Back to landing page</a>
+  </div>
+</nav>
+
+<div class="app-shell">
+
+  <div class="app-header">
+    <div>
+      <div style="font-size:13px;color:var(--muted);">Step 1–4 · Ambica Textiles Pvt Ltd (demo data)</div>
+    </div>
+    <div class="tabbar" id="tabbar">
+      <button data-tab="input" class="active">Input</button>
+      <button data-tab="hotspots">Hotspots</button>
+      <button data-tab="actions">Actions</button>
+      <button data-tab="report">Report</button>
+    </div>
+  </div>
+
+  <!-- ============ INPUT ============ -->
+  <div class="panel tab-panel" id="tab-input">
+    <div class="panel-title">
+      <h2>Tell us what you burn, buy &amp; throw away</h2>
+      <span class="hint">Presets pre-fill realistic numbers so this never starts blank</span>
+    </div>
+
+    <div class="preset-row" id="presetRow">
+      <button class="preset-chip active" data-preset="textile">Textile</button>
+      <button class="preset-chip" data-preset="foundry">Foundry</button>
+      <button class="preset-chip" data-preset="food">Food processing</button>
+    </div>
+
+    <div class="field-group">
+      <h4>Energy</h4>
+      <div class="field-row">
+        <label>Grid electricity<span class="sub">Scope 2 · billed units</span></label>
+        <input type="number" id="in_grid" min="0">
+        <span class="unit-badge">kWh / yr</span>
+      </div>
+      <div class="field-row">
+        <label>Diesel generator<span class="sub">Scope 1 · backup power</span></label>
+        <input type="number" id="in_diesel" min="0">
+        <span class="unit-badge">litres / yr</span>
+      </div>
+      <div class="field-row">
+        <label>Coal-fired boiler<span class="sub">Scope 1 · process heat</span></label>
+        <input type="number" id="in_coal" min="0">
+        <span class="unit-badge">tonnes / yr</span>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <h4>Materials</h4>
+      <div class="field-row">
+        <label>Steel (virgin)<span class="sub">Scope 3 · purchased</span></label>
+        <input type="number" id="in_steel" min="0">
+        <span class="unit-badge">tonnes / yr</span>
+      </div>
+      <div class="field-row">
+        <label>Cement<span class="sub">Scope 3 · purchased</span></label>
+        <input type="number" id="in_cement" min="0">
+        <span class="unit-badge">tonnes / yr</span>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <h4>Waste &amp; logistics</h4>
+      <div class="field-row">
+        <label>Road freight<span class="sub">Scope 3 · inbound + outbound</span></label>
+        <input type="number" id="in_freight" min="0">
+        <span class="unit-badge">t·km / yr</span>
+      </div>
+      <div class="field-row">
+        <label>Organic waste → landfill<span class="sub">Scope 3 · untreated</span></label>
+        <input type="number" id="in_waste" min="0">
+        <span class="unit-badge">tonnes / yr</span>
+      </div>
+    </div>
+
+    <div class="actions-row">
+      <span class="hint" style="align-self:center;">3 short screens · works on a phone</span>
+      <button class="btn btn-primary" id="btnDetect">Detect hotspots →</button>
+    </div>
+  </div>
+
+  <!-- ============ HOTSPOTS ============ -->
+  <div class="panel tab-panel" id="tab-hotspots" style="display:none;">
+    <div class="panel-title">
+      <h2>Your emission hotspots</h2>
+      <span class="hint">Ranked by tCO₂e/yr, highest first</span>
+    </div>
+
+    <div class="hotspot-total">
+      <div><div class="big" id="hsTotal">—</div><div class="lbl">Total tCO₂e / yr</div></div>
+      <div><div class="big" id="hsTopShare">—</div><div class="lbl">Top source share of footprint</div></div>
+      <div><div class="big" id="hsScopeSplit">—</div><div class="lbl">Scope 1 / 2 / 3 split</div></div>
+    </div>
+
+    <div id="barList"></div>
+
+    <div class="leak-callout" id="leakCallout" style="display:none;">
+      <span class="badge">LEAK POINT #1</span>
+      <p id="leakText"></p>
+    </div>
+
+    <div class="actions-row">
+      <button class="btn btn-ghost" data-goto="input">← Edit inputs</button>
+      <button class="btn btn-primary" id="btnRecommend">See fixes →</button>
+    </div>
+  </div>
+
+  <!-- ============ ACTIONS ============ -->
+  <div class="panel tab-panel" id="tab-actions" style="display:none;">
+    <div class="panel-title">
+      <h2>Recommended fixes</h2>
+      <span class="hint">Sorted by payback · tick to add to your plan</span>
+    </div>
+    <div id="actionList"></div>
+    <div class="actions-row">
+      <button class="btn btn-ghost" data-goto="hotspots">← Back to hotspots</button>
+      <button class="btn btn-primary" id="btnReport">Build my plan →</button>
+    </div>
+  </div>
+
+  <!-- ============ REPORT ============ -->
+  <div class="panel tab-panel" id="tab-report" style="display:none;">
+    <div class="panel-title">
+      <h2>Your circular plan · Ambica Textiles Pvt Ltd</h2>
+      <span class="hint" id="planCount">0 fixes selected</span>
+    </div>
+
+    <div class="report-hero">
+      <div class="report-stat"><b id="rTco2">—</b><span>tCO₂e cut / yr</span></div>
+      <div class="report-stat"><b id="rSaved">—</b><span>₹ cost saved / yr</span></div>
+      <div class="report-stat"><b id="rPct">—</b><span>Footprint cut</span></div>
+    </div>
+
+    <div class="before-after">
+      <div class="ba-col">
+        <div class="lbl">Before</div>
+        <div class="ba-bar before" id="baBefore">—</div>
+      </div>
+      <div class="ba-arrow">→</div>
+      <div class="ba-col">
+        <div class="lbl">After</div>
+        <div class="ba-bar after" id="baAfter">—</div>
+      </div>
+    </div>
+
+    <h4 style="font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin:0 0 10px;">Selected fixes</h4>
+    <div id="planLines"><div class="plan-empty">No fixes selected yet — go back to Actions and tick a few.</div></div>
+
+    <h4 style="font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin:26px 0 10px;">Compliance readiness</h4>
+    <ul class="compliance-list">
+      <li>GHG Protocol Scope 1 &amp; 2 aligned</li>
+      <li>BRSR-ready summary for buyers</li>
+      <li>Every factor cited (CEA · IPCC · DEFRA)</li>
+      <li>Methodology page + audit trail</li>
+    </ul>
+
+    <div class="actions-row">
+      <button class="btn btn-ghost" data-goto="actions">← Back to actions</button>
+      <button class="btn btn-primary" id="btnExport">Export PDF report ↓</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="assets/script.js"></script>
+</body>
+</html>
